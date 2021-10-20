@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Chapitre 5 : Fonctions</title>
+  </head>
+  <body>
+    <script>
+      function fLois(){
+        document.writeln("Un robot blabla regle1");
+        document.writeln("<br/>");
+        document.writeln("Un robot blabla regle2");
+        document.writeln("<br/>");
+        document.writeln("Un robot blabla regle3");
+        document.writeln("<br/>");
+        document.writeln("---Isaac Asimov---");
+        document.writeln("<br/>");
+      }
+      document.writeln("<h3>Appel simple de fonction</h3>");
+      fLois();
+      document.writeln("<h3>Appel en boucle</h3>")
+      for(let i = 0; i < 3; i++){
+        document.writeln("<h4> " + i + "</h4>");
+        fLois();
+      }
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Chapitre 5 : Fonctions</title>
+  </head>
+  <body>
+    <script>
+      var globVar = 56;
+      function fMulti(){
+        let locVar = 1337;
+        document.writeln(globVar + "*" + locVar + "=" + (globVar*locVar));
+      }
+      document.writeln("<h4>Multiplication</h4>");
+      fMulti();
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Chapitre 5 : Fonctions</title>
+  </head>
+  <body>
+    <script>
+      var varGlob = "***global***";
+      function fPortee(){
+        let varLoc = "***local***";
+        document.writeln("A l'interieur de notre fonction, variable globale = " + varGlob + "<br/>");
+        document.writeln("A l'interieur de notre fonction, variable locale = " + varLoc + "<br/>");
+      }
+      document.writeln("<h4>Portee</h4>");
+      fPortee();
+      document.writeln("A l'exterieur de la fonction, variable globale = " + varGlob + "<br/>");
+      document.writeln("A l'exterieur de la fonction, variable locale = " + varLoc + "<br/>");
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Chapitre 5 : Fonctions</title>
+  </head>
+  <body>
+    <script>
+      function fArgs(arg1,arg2,arg3){
+        document.writeln("Argument 1 = " + arg1 + "<br/>");
+        document.writeln("Argument 2 = " + arg2 + "<br/>");
+        document.writeln("Argument 3 = " + arg3 + "<br/>");
+      }
+      let chaine = "Je suis le boss";
+      let nombre = 1337;
+      let tab = ["alpha","beta","gamma"];
+      fArgs(chaine,nombre,tab);
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Chapitre 5 : Fonctions</title>
+  </head>
+  <body>
+    <script>
+      function fDiv(arg1,arg2=1){
+        document.writeln("La division donne = " + arg1/arg2 + "<br/>");
+      }
+      fDiv(50);
+      fDiv(50,2);
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Chapitre 5 : Fonctions</title>
+  </head>
+  <body>
+    <script>
+      function fAdd(){
+        let somme = 0;
+        for(let i = 0; i < arguments.length; i++){
+          somme += arguments[i];
+        }
+        document.writeln("La somme donne : " + somme + "<br/>");
+      }
+      fAdd(1,2,3,4,5,6,7,8,9,10);
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Chapitre 5 : Fonctions</title>
+  </head>
+  <body>
+    <script>
+      function somme(arg1,arg2){
+        return arg1+arg2;
+      }
+      let diff = (arg1,arg2) => {return arg1-arg2}
+      document.writeln("Appel fonction normale : " + somme(2,3));
+      document.writeln("<br/>");
+      document.writeln("Appel fonction definie par fat-arrow : " + diff(10,5));
+    </script>
+  </body>
+</html>

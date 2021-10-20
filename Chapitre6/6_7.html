@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>Combat de Pokemons</title>
+  </head>
+  <body>
+    <script>
+      // Classe Attaque
+      class Attaque {
+        constructor(label, pd){
+          this.label = label;
+          this.pd = pd;
+        }
+      }
+      // Classe Pokemon
+      class Pokemon {
+        let pvRestants;
+        constructor(nom,numero,taille,poids,type,pv,att1,att2){
+          this.nom = nom;
+          this.numero = numero;
+          this.taille = taille;
+          this.poids = poids;
+          this.type = type;
+          this.pv = pv;
+          this.attaque1 = att1;
+          this.attaque2 = att2;
+        }
+        reinitPv(){
+          this.pvRestants = this.pv;
+        }
+        attaque(pokemon){
+          let degats;
+          if(this.pvRestants > (20/100*this.pv) ){
+            degats = this.attaque1.pd;
+          } else {
+            degats = this.attaque2.pd;
+          }
+          if( Math.random() < 0.1 ){
+            degats *= 2;
+          }
+          return degats;
+        }
+      }
+      // Classe Combat
+      class Combat {
+        let combat1;
+        let combat2;
+        constructor(pok1,pok2){
+          document.writeln("<h4>Combat entre " + pok1.nom + " et " + pok2.nom + "</h4>");
+          if( Math.random() > 0.5 ) {
+            this.combat1 = pok1;
+            this.combat2 = pok2;
+          } else {
+            this.combat1 = pok2;
+            this.combat2 = pok1;
+          }
+          document.writeln("<p>Ce sera " + this.combat1.nom + " qui attaque d'abord</p>");
+          document.writeln("<hr/>");
+        }
+        <!--
+        vainqueur(){
+          if(this.combat1.pvRestants < 0) return this.combat2;
+          if(this.combat2.pvRestants < 0) return this.combat1;
+          if( (this.combat1.pvRestants<0) && (this.combat2.pvRestants<0) ) return null;
+        }
+        -->
+        vainqueur(combattant01, combattant02) {
+            let vainqueur;
+            // Si un des deux Pokémon est KO, alors l'autre
+            // est vainqueur
+            if (combattant01.pvRestant > 0) {
+                vainqueur = combattant01;
+            }
+            if (combattant02.pvRestant > 0) {
+                vainqueur = combattant02;
+            }
+            if (combattant01.pvRestant < 0 && combattant02.pvRestant
+                < 0) {
+                vainqueur = null;
+            }
+            return vainqueur;
+        }
+        combat(){
+          this.combat1.reinitPv();
+          this.combat2.reinitPv();
+          document.writeln("<p>" + this.combat1.nom + " a " + this.combat1.pv + " et " + this.combat2.nom + " a " + this.combat2.pv + "<pv>");
+          document.writeln("<hr/>");
+          while(this.combat1.pvRestants>0 && this.combat2.pvRestants>0){
+            let degat1 = this.combat1.attaque(this.combat2);
+            this.combat2.pvRestants -= degat1;
+            document.writeln("<p>" + this.combat1.nom + " prend " + degat1 + " pvs a " + this.combat2.nom + "<pv>")
+            let degat2 = this.combat2.attaque(this.combat1);
+            this.combat1.pvRestants -= degat2;
+            document.writeln("<p>" + this.combat2.nom + " prend " + degat2 + " pvs a " + this.combat1.nom + "<pv>")
+          }
+          let vainqueur = this.vainqueur(this.combat1,this.combat2);
+          if(vainqueur){
+            document.writeln("<p>Le vainqueur est : " + vainqueur.nom + "</p>")
+          } else {
+            document.writeln("<h4>Il n'y a pas de vainqueur</h4>");
+          }
+        }
+      }
+      // le fight
+      let pikachu = new Pokemon("Pikachu",25,60,6.0,"Electrique",82,new Attaque("Statik",15),new Attaque("ParaTonerre",25));
+      let evoli = new Pokemon("Evoli",133,30,6.5,"Normal",70,new Attaque("Adaptabilite",9),new Attaque("Anticipation",15));
+      let fight = new Combat(pikachu,evoli);
+      fight.combat();
+    </script>
+  </body>
+</html>

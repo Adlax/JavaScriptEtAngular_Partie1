@@ -1,0 +1,22 @@
+<div class="container">
+
+  <h2>Les six premiers pokemons:</h2>
+
+  <hr/>
+
+  <div class="columns">
+    <div class="column">
+      <p>Dans l'ordre du pokedex:</p>
+      <p *ngIf="retour">Le pokemon selectionne est : {{ retour }}</p>
+    </div>
+  </div>
+
+  <div class="columns is-multiline" *ngIf="pokemons">
+    <ul class="menu-list column is-one-third" *ngFor="let pokemon of pokemons">
+      <li>
+        <app-pokemon [pokemon]=pokemon (evnt)="retour=$event"></app-pokemon>
+      </li>
+    </ul>
+  </div>
+
+</div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Chapitre 5 : Mise en pratique</title>
+  </head>
+  <body>
+    <script>
+      document.writeln("<h4>Fonction max de deux valeurs</h4>");
+      function maxDeuxVal(a,b){
+        return ( (a>b)? a : b );
+      }
+      document.writeln(maxDeuxVal(51,6));
+
+      document.writeln("<h4>Fonction max de trois valeurs</h4>");
+      function maxTroisVal(a,b,c){
+        return ( maxDeuxVal(a,b), maxDeuxVal(b,c) );
+      }
+      document.writeln(maxTroisVal(51,6,87));
+
+      document.writeln("<h4>Fonction factorielle</h4>");
+      function factorielle(n){
+        if(n === 0) return 1;
+        else {
+          return n*factorielle(n-1);
+        }
+      }
+      document.writeln(factorielle(15));
+    </script>
+  </body>
+</html>

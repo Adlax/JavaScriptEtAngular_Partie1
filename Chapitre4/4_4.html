@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Mise en pratique</title>
+  </head>
+  <body>
+    <script>
+      // suite de nombres
+      document.writeln("<h3>Nombre de 0 a 200</h3>");
+      for(let i = 0; i <= 200;i++){
+        document.writeln(i);
+      }
+      // Suite de Fibonacci avant 666
+      document.writeln("<h3>Suite de Fibonacci</h3>");
+      var terme1 = 0;
+      var terme2 = 1;
+      var somme = 0;
+      while(terme1 + terme2 <= 666){
+        somme = terme1 + terme2;
+        document.writeln(somme);
+        terme1 = terme2;
+        terme2 = somme;
+      }
+      // Nombres premiers avant 66
+      document.writeln("<h3>Nombres premiers</h3>");
+      for(let i = 2; i <= 66; i++){
+        let divisible = false;
+        for(let j = 2; j < i; j++){
+          if(i % j == 0) divisible = true;
+        }
+        if(divisible == false) document.writeln(i);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+//en version degueulasse :
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Chapitre6 : POO en js</title>
+  </head>
+  <body>
+    <script>
+      function Personne(nom,prenom){
+        this.nom = nom;
+        this.prenom = prenom;
+        this.presenteToi = function(){
+          alert(this.prenom + " " + this.nom );
+        };
+      }
+      let alan = new Personne("Turing","Alan");
+      let bob = new Personne("Sponge","Bob");
+      alan.presenteToi();
+      bob.presenteToi();
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Chapitre6 : POO en js</title>
+  </head>
+  <body>
+    <script>
+      class Chat {
+        constructor(nom,couleur,caractere){
+          this._nom = nom || "Guizmo";
+          this.couleur = couleur || "Tigre";
+          this.caractere = caractere || "Pepere";
+        }
+        getNom(){
+          return this._nom;
+        }
+        setNom(nom){
+          if(nom !== "Patator"){
+            this._nom = nom;
+          }
+        }
+      }
+      let unChat = new Chat("Pompom","Gris","Foufou");
+      console.log(unChat);
+      unChat.setNom("Patator");
+      console.log(unChat);
+      unChat.setNom("Poutrelle");
+      console.log(unChat);
+    </script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Chapitre6 : POO en js</title>
+  </head>
+  <body>
+    <script>
+      class Menu {
+        constructor(){
+          console.log("Un menu est cree");
+        }
+        static ENTREE = "Coleslaw/Brochette de champignons/Des de tofu";
+        static PLAT = "Fajitas/Risotto/Puree de pois chiches";
+        static DESSERT = "Cheesecake/Canneles/Tiramisu";
+        static afficherLeRestaurant(){
+          document.writeln("<h4>Han Shot First - Restaurant galactique</h4>");
+        }
+      }
+      Menu.afficherLeRestaurant();
+      document.writeln("<br/>");
+      document.writeln(Menu.ENTREE);
+      document.writeln("<br/>");
+      document.writeln(Menu.PLAT);
+      document.writeln("<br/>");
+      document.writeln(Menu.DESSERT);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<div class="container text-center">
+  <hr/>
+  <h2>Le composant c10</h2>
+  <hr/>
+  <div>{{ replique }}</div>
+  <div>{{ replique | lowercase }}</div>
+  <div>{{ replique | uppercase }}</div>
+  <div>{{ replique | titlecase }}</div>
+  <hr/>
+  <div>{{unChiffre | percent:'2.3-4'}}</div>
+  <hr/>
+  <div>TeslaM3 : {{ teslaM3 }}</div>
+  <div>48600,00€ => {{ teslaM3 | currency : 'EUR' : 'symbol' }} </div>
+  <div>48600,00EUR => {{ teslaM3 | currency : 'EUR' : 'code' }} </div>
+  <div>48600,00 euros, et pas tres chere. => {{ teslaM3 | currency : 'EUR' : 'euros, et pas tres chere.' }} </div>
+  <div>48600,00€ => {{ teslaM3 | currency : 'EUR' : 'symbol' : '1.0-0' }} </div>
+  <hr/>
+  <div>Nous sommes le : {{ today }}</div>
+  <div>Nous sommes le : {{ today | date }}</div>
+  <div>Nous sommes le : {{ today | date : 'shortDate' }}</div>
+  <div>Nous sommes le : {{ today | date : 'shortTime' }}</div>
+  <hr/>
+  <h3>Un objet</h3>
+  <div *ngFor="let elt of monObj | keyvalue">
+    {{ elt.key }} - {{ elt.value }}
+  </div>
+  <h3>Un Dico</h3>
+  <div *ngFor="let elt of monDico | keyvalue">
+    {{ elt.key }} - {{ elt.value }}
+  </div>
+  <hr/>
+  <h3>Une chaine de caractere</h3>
+  <div>{{ uneChaine | slice : 0 : 30 }} , {{ uneChaine | slice : -7 }}</div>
+  <h3>Un tableau</h3>
+  <div *ngFor="let elt of unTableau | slice : 0 : 3">{{ elt | slice : 0 : 3 }}</div>
+  <hr/>
+  <h3>Un objet JSON</h3>
+  <div>{{ unJson }}</div> //donne de la merde
+  <div> {{ unJson | json }}</div>
+  <h3>Une promesse</h3>
+  <div>{{ unePromesse | async }}</div>
+</div>

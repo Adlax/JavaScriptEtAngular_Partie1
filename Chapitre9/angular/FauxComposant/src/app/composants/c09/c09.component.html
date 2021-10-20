@@ -1,0 +1,78 @@
+
+<hr/>
+
+<p>Interpolation d'une varibale bidon du controleur : {{ maVar }}</p>
+<p>Interpolation d'une variable nombre : {{ monNombre }}</p>
+<p>Interpolation d'une variable objet : </p>
+<ul>
+  <li>Nom : {{ monObjet.nom }}</li>
+  <li>Prenom : {{ monObjet.prenom }}</li>
+  <li>Ville : {{monObjet.ville}}</li>
+</ul>
+<button class="btn btn-primary" (click)="surClick()">{{ texteButton }}</button>
+
+<hr/>
+
+<h1>Directives</h1>
+<p>Directives de structures</p>
+<ul>
+  <li>ngIf</li>
+  <li>ngFor</li>
+  <li>ngSwitch</li>
+</ul>
+<p>Directives de donnees</p>
+<ul>
+  <li>ngClass</li>
+  <li>ngStyle</li>
+<ul>
+
+<!--
+<hr/>
+<h4>ngIf exemple</h4>
+<p class="alert alert-primary">
+  Le bouton a ete clique un nombre <span *ngIf="nbClick%2 == 0; then ifVrai; else ifFaux;"></span> de fois
+</p>
+<ng-template #ifVrai>
+  <span class="alert alert-danger">pair</span>
+</ng-template>
+<ng-template #ifFaux>
+  <span class="alert alert-warning">impair</span>
+<ng-template>
+-->
+
+<!--
+<hr/>
+<h4>ngFor exemple</h4>
+<div *ngFor="let sportif of sportifs; index as i; first as f; last as l; odd as o; even as e;">
+  <b>{{ sportif }} : </b> son index : {{ i }}, il est le premier de la liste : {{ e }}, il est le dernier de la liste : {{ l }}, avec un index pair : {{ e }}, avec un index impair : {{ o }}
+</div>
+-->
+
+<!--
+<hr>
+<h4>ngSwitch exemple</h4>
+<div *ngFor="let sportif of sportifs;">
+  <div [ngSwitch]="sportif">
+    <span *ngSwitchCase="'Jlo'"><strong>{{sportif}}</strong></span>
+    <span *ngSwitchDefault>{{sportif}}</span>
+  </div>
+</div>
+-->
+
+<!--
+<hr>
+<h4>ngClass</h4>
+<div [ngClass]="monObjetDeClasse">Par on objet</div>
+<p [class]="maClasse">Exemple</p>
+<button class="btn-primary" (click)="onClickToggleClass()">Toggle class here</button>
+<p [class.alert-info]="monBool">Autre utilisation possible</p>
+<button class="btn-primary" (click)="onClickChangeClass()">Toggle class here</button>
+-->
+
+<hr>
+<h4>ngStyle</h4>
+<p [style.background-color]="'red'">&nbsp;ROUGE</p>
+<p [style.background-color]="uneFonction()">ggg</p>
+<p [style.background-color]="unStyle">&nbsp;</p>
+<p [style.color]="'red'" [style.font-weight]="'bold'">TAHITI</p>
+<p [ngStyle]="monStyle">TAHITI 2</p>
